@@ -1,0 +1,88 @@
+import './centrar.css'
+
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import React,{useState} from 'react';
+
+
+
+function Registrarse(){
+    window.location.replace('/registro')
+    
+}
+
+export default function Hero() {
+  const [correo,setCorreo] =useState('');
+  const [contraseña,setContraseña] = useState('');
+  const auth = getAuth();
+  const IniciarSesion = async() =>{
+    await signInWithEmailAndPassword(auth, correo, contraseña)
+    .then((userCredential) => {
+      // Signed in
+      //const user = userCredential.user;
+      window.location.replace('/usuario');
+    })
+    .catch((error) => {
+      //const errorCode = error.code;
+      //const errorMessage = error.message;
+      console.log("F");
+    });
+  }
+  return (
+    <div class="field"> 
+    
+         <br></br> <br></br> <br></br> <br></br> <br></br> <br></br><br></br>
+          <div class="container " >
+          <section class="hero is-link">
+            <div class="hero-body">
+                <p class="title">
+                Iniciar Sesion
+                </p>
+                
+            </div>
+            </section>
+          </div>
+          <div class="container is-max-desktop">
+          <label class="label">Usuario</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input is-link" type="text" id="correo" placeholder="Ingrese su usuario" onChange={(ev)=> setCorreo(ev.target.value)} ></input>
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+
+          </div>
+          <label class="label">Contraseña</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input is-success" type="password" id="contraseña"  placeholder="Ingrese su contraseña" onChange={(ev)=> setContraseña(ev.target.value)} ></input>
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+
+          </div>
+          <br></br>
+          <div class="container is-max-desktop ">
+            <div class="field">
+              <p class="control">
+              <div class="buttons is-centered">
+                <button class="button is-primary is-light" onClick={IniciarSesion}>Iniciar Sesion</button>
+                <button class="button is-link is-light" onClick={Registrarse}>Registrarse</button>
+                </div>
+                
+              </p>
+            </div>
+          </div>
+
+          </div>       
+            <footer class="footer">
+            <div class="content has-text-centered">
+                <p>
+                Si quiere <strong>Registrarse</strong> en nuestra pagina da click en el boton Registrarse
+                </p>
+            </div>
+            </footer>
+
+
+
+        </div>
+        
+  )
+}

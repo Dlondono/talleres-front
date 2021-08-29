@@ -1,0 +1,7 @@
+:root {
+    --bg: #071e36;
+    --card-bg: #041221;
+}
+.navbar{
+    background: var(--card-bg);
+}
