@@ -56,7 +56,7 @@ export default (props)=> {
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">Correo</label>
+                    <label class="label">Contraseña</label>
                     <div class="control">
                         <input class="input" type="password" id="contraseña" placeholder="Ingresa tu contraseña" onChange={(ev)=> setContraseña(ev.target.value)}></input>
                     </div>
