@@ -1,6 +1,6 @@
 
 export default {
-    apiKey: "",
+    apiKey: "AIzaSyDTPMUZ7LqJRvFYVzZQedFRO_-1uIKsxTc",
     authDomain: "mascotas-3c0f1.firebaseapp.com",
     projectId: "mascotas-3c0f1",
     storageBucket: "mascotas-3c0f1.appspot.com",

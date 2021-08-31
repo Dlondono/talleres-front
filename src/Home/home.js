@@ -64,7 +64,7 @@ export default function Hero() {
               <p class="control">
               <div class="buttons is-centered">
                 <button class="button is-primary is-light" onClick={IniciarSesion}>Iniciar Sesion</button>
-                <button class="button is-link is-light" onClick={Registrarse}>Registrarse</button>
+              
                 </div>
                 
               </p>
@@ -75,8 +75,9 @@ export default function Hero() {
             <footer class="footer">
             <div class="content has-text-centered">
                 <p>
-                Si quiere <strong>Registrarse</strong> en nuestra pagina da click en el boton Registrarse
+                ¿Nuevo usuario? <strong>Registrese</strong> en nuestra pagina dando click en el boton
                 </p>
+                <button class="button is-link is-light" onClick={Registrarse}>Registrarse</button>
             </div>
             </footer>
 
