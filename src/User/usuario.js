@@ -4,6 +4,8 @@ import { signOut } from "firebase/auth";
 import Logo from "../Mascotas.png";
 import React,{useState} from 'react';
 
+
+
 export default (props)=> {
   
 const auth = getAuth();
@@ -38,6 +40,7 @@ onAuthStateChanged(auth, (user) => {
             <div class="column is-four-fifths is-centered">
                 <br></br><br></br><br></br>
                 <p class="title has-text-light">{correo}</p></div>
+                
             <div class="column">
                 <img src={Logo}></img>
             </div>

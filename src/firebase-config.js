@@ -1,4 +1,3 @@
-
 export default {
     apiKey: "AIzaSyDTPMUZ7LqJRvFYVzZQedFRO_-1uIKsxTc",
     authDomain: "mascotas-3c0f1.firebaseapp.com",

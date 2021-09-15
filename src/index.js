@@ -5,7 +5,12 @@ import Rutas from './Router/ruta';
 import { FirebaseAppProvider } from 'reactfire';
 import firebaseConfig from './firebase-config.js';
 import reportWebVitals from './reportWebVitals';
+import { initializeApp } from 'firebase/app';
+import { getFirestore} from 'firebase/firestore/lite';
 
+
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
 ReactDOM.render(
   <React.StrictMode>
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>

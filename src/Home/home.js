@@ -1,14 +1,20 @@
 import './centrar.css'
-
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from 'firebase/firestore';
+import { db } from '../index';
+import Empleados from '../Database/empleados';
 import React,{useState} from 'react';
 
 
 
-function Registrarse(){
-    window.location.replace('/registro')
-    
+
+const Registrarse = async () =>{
+  //window.location.replace('/registro')
+    const ref = doc(db, "Empleados");
+    await setDoc(ref, new Empleados("pedto", "CA", "USA","dd","ddd","ffff","ffsf","gdgddg"));
+  //
 }
+
 
 export default function Hero() {
   const [correo,setCorreo] =useState('');
@@ -19,6 +25,7 @@ export default function Hero() {
     .then((userCredential) => {
       // Signed in
       //const user = userCredential.user;
+      
       window.location.replace('/usuario');
     })
     .catch((error) => {
@@ -28,8 +35,8 @@ export default function Hero() {
     });
   }
   return (
-    <div class="field"> 
-    
+    <div> 
+          
          <br></br> <br></br> <br></br> <br></br> <br></br> <br></br><br></br>
           <div class="container " >
           <section class="hero is-link">
