@@ -1,46 +1,45 @@
 import './centrar.css'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { collection,doc, setDoc } from 'firebase/firestore';
+import { doc, getDoc } from "firebase/firestore";
 import { db } from '../index';
-import Empleados from '../Database/empleados';
 import React,{useState} from 'react';
 
 
-
+  
 const Registrarse = async () =>{
-  //window.location.replace('/registro')
-  let s =  new Empleados("jose","cc","fff","4","5","6","7","8");
-  await setDoc(doc(db, "Empleados", "SOy un ID"), {
-    name: s.nombre,
-    cc: s.cc,
-    creador: s.creador,
-    dirreccion:s.dirreccion,
-    email:s.email,
-    fechaDeCreacion:s.fechaDeCreacion,
-    fechadeActualizacion:s.fechadeActualizacion,
-    rol:s.rol
-  });
- 
-  //
+  window.location.replace('/registro');
 }
-
+const obtenerDoc= async (id) =>{
+  const docRef = doc(db, "Empleados", id);
+  const docSnap = await getDoc(docRef);
+  return docSnap.data().rol;
+}
+async function obtenerValor(id) {
+  let data = await obtenerDoc(id);
+  if (data==="admin"){
+    window.location.replace('/Admin')
+  }if(data==="empleado"){
+    window.location.replace('/usuario')
+  }
+  
+}
 
 export default function Hero() {
   const [correo,setCorreo] =useState('');
   const [contraseña,setContraseña] = useState('');
   const auth = getAuth();
+  
   const IniciarSesion = async() =>{
     await signInWithEmailAndPassword(auth, correo, contraseña)
     .then((userCredential) => {
       // Signed in
-      //const user = userCredential.user;
-      
-      window.location.replace('/usuario');
+      const user = userCredential.user;
+      obtenerValor(user.uid);
     })
     .catch((error) => {
       //const errorCode = error.code;
-      //const errorMessage = error.message;
-      console.log("F");
+      const errorMessage = error.message;
+      console.log(errorMessage);
     });
   }
   return (

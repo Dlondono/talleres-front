@@ -3,6 +3,7 @@ import Registrar from '../Home/registro.js';
 import Home from '../Home/home.js';
 import homeP from '../Home/homeP.js';
 import User  from '../User/usuario.js';
+import administrador from '../User/administrador.js';
 import {BrowserRouter,Route} from 'react-router-dom';
 
 
@@ -15,6 +16,7 @@ function ruta(){
             <Route exact path="/" component={homeP}></Route>
             <Route exact path="/registro" component={Registrar}></Route>
             <Route exact path="/usuario" component={User}></Route>
+            <Route exact path="/Admin" component={administrador}></Route>
          </BrowserRouter>    
          
     );

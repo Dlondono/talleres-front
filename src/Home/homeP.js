@@ -7,7 +7,7 @@ export default function homeP(){
         <div>
                 <section class="hero is-medium">
                     <div class="hero-head">
-                    <div class="container">
+                    
                         <nav class="navbar" role="navigation" aria-label="main navigation">
 
                         <div id="navbarBasicExample" class="navbar-menu">
@@ -33,11 +33,11 @@ export default function homeP(){
                             </div>
                         </div>
                         </nav>
+                    
                     </div>
-                    </div>
-                    <div class="hero-body">
-                    <div class="container has-text-centered">
-                        <img src={Logo} width="300" height="100"></img>
+                    <div class="hero">
+                    <div class="container  has-text-centered">
+                        <img src={Logo} width="150" height="50"></img>
                         <h2 class="subtitle">
                         Ghost's Casper theme made with Bulma
                         </h2>
