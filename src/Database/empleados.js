@@ -1,5 +1,5 @@
-class empleados {
-    constructor (nombre, cc, creador, dirreccion, email, fechaDeCreacion, fechadeActualizacion,rol) {
+export default function Empleados (nombre, cc, creador, dirreccion, email, fechaDeCreacion, fechadeActualizacion,rol) {
+    
         this.nombre = nombre;
         this.cc = cc;
         this.creador = creador;
@@ -8,7 +8,6 @@ class empleados {
         this.fechaDeCreacion = fechaDeCreacion;
         this.fechadeActualizacion = fechadeActualizacion;
         this.rol = rol;
-    }
+    
 }
 
-// Firestore data converter

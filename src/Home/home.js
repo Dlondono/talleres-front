@@ -1,17 +1,26 @@
 import './centrar.css'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { doc, setDoc } from 'firebase/firestore';
+import { collection,doc, setDoc } from 'firebase/firestore';
 import { db } from '../index';
 import Empleados from '../Database/empleados';
 import React,{useState} from 'react';
 
 
 
-
 const Registrarse = async () =>{
   //window.location.replace('/registro')
-    const ref = doc(db, "Empleados");
-    await setDoc(ref, new Empleados("pedto", "CA", "USA","dd","ddd","ffff","ffsf","gdgddg"));
+  let s =  new Empleados("jose","cc","fff","4","5","6","7","8");
+  await setDoc(doc(db, "Empleados", "SOy un ID"), {
+    name: s.nombre,
+    cc: s.cc,
+    creador: s.creador,
+    dirreccion:s.dirreccion,
+    email:s.email,
+    fechaDeCreacion:s.fechaDeCreacion,
+    fechadeActualizacion:s.fechadeActualizacion,
+    rol:s.rol
+  });
+ 
   //
 }
 
