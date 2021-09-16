@@ -28,6 +28,9 @@ export default function administrador () {
                     </div>
                     <div class="navbar-end">
                         <div class="navbar-item">
+                        <a class="navbar-item brand-text" href="/empleado">
+                            <a href="/empleado"> Registrar mascota</a>
+                        </a>
                             <button class="button is-dark" onClick={salir}>Salir</button>
                             <a> </a>
                         </div>
