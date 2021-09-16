@@ -2,6 +2,8 @@ import React,{useState} from 'react';
 import { collection,doc, setDoc } from 'firebase/firestore';
 import { db } from '../index';
 import Mascotas from '../modelos/mascotas';
+import './diseñoEmpleados.css';
+
 
 export default function Empleado(){
     const [nombre,setNombre] =useState('');
@@ -20,8 +22,11 @@ export default function Empleado(){
           owner:s.owner,
         });
     }
+  
     return(
+
         <div class="container">
+          <h1>Registro de Mascotas</h1>
             <br></br> <br></br> <br></br> <br></br> <br></br> <br></br><br></br>
             <div class="control">
                 <input class="input" type="text" placeholder="Nombre" id="nombre" onChange={(ev)=> setNombre(ev.target.value)}></input>
@@ -38,6 +43,7 @@ export default function Empleado(){
                 <option>opciones 2</option>
                 </select>
             </div>
+            <br></br><br></br>
             <div class="select" onSelect={(ev)=>setTamaño(ev.target.value)}>
                 <select>
                 <option>Seleccionar tamaño</option>

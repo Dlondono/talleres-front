@@ -45,10 +45,10 @@ export default function Hero() {
   return (
     <div> 
           
-         <br></br> <br></br> <br></br> <br></br> <br></br> <br></br><br></br>
+        <br></br> <br></br> <br></br> <br></br> <br></br> <br></br><br></br>
           <div class="container " >
           <section class="hero is-link">
-            <div class="hero-body">
+            <div class="heroB">
                 <p class="title">
                 Iniciar Sesion
                 </p>
@@ -86,19 +86,8 @@ export default function Hero() {
             </div>
           </div>
 
-          </div>       
-            <footer class="footer">
-            <div class="content has-text-centered">
-                <p>
-                ¿Nuevo usuario? <strong>Registrese</strong> en nuestra pagina dando click en el boton
-                </p>
-                <button class="button is-link is-light" onClick={Registrarse}>Registrarse</button>
-            </div>
-            </footer>
-
-
-
         </div>
+      </div>
         
   )
 }

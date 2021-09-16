@@ -7,24 +7,24 @@
 
 html {
   font-family: 'Nunito Sans', sans-serif;
-  color: white;
+  background-color: rgb(34,31,31);
 }
 
 a {
-  color: #3b7adf;
+  color: #1267f0;
 }
 
 a:hover {
   text-decoration: underline;
-  color: #3b7adf;
+  color: #2110be;
 }
 
 .hr {
-  background: #24272c;
+  background: #005cf0;
 }
 
 .hero {
-  background: #060606;
+  background: #111010;
 }
 
 .title,
@@ -53,7 +53,7 @@ a:hover {
 
 .blog-posts {
   min-height: 100vh;
-  background: #191b1f;
+  background: #0b0c0c;
   padding-top: 4rem;
   padding-bottom: 10rem;
 }
@@ -67,7 +67,7 @@ a:hover {
 }
 
 .blog-posts .post .post-category {
-  color: #3b7adf;
+  color: #0f0f0f;
 }
 
 .blog-posts .post .post-title {
@@ -79,9 +79,27 @@ a:hover {
   letter-spacing: .03rem;
   font-size: 1.2rem;
   font-family: 'IBM Plex Serif', serif;
-  color: #92a3ab;
+  color: #fffbfb;
 }
 
 .blog-posts .post .featured .featured-image img {
   height: 380px;
+}
+
+.label {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 10px;
+}
+
+.heroB{
+  background-color: black;
+  text-align: center;
+}
+
+.control{ 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: auto;
+    width: 300px;
 }
