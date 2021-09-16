@@ -6,6 +6,7 @@ import User  from '../User/usuario.js';
 import administrador from '../User/administrador.js';
 import {BrowserRouter,Route} from 'react-router-dom';
 import Empleados from '../view/vistaEmpleado.js';
+import newEmpleados from '../Componentes/newEmpleados.js';
 
 
 
@@ -18,6 +19,8 @@ function ruta(){
             <Route exact path="/registro" component={Registrar}></Route>
             <Route exact path="/usuario" component={User}></Route>
             <Route exact path="/empleado" component={Empleados}></Route>
+            <Route exact path="/Admin" component={administrador}></Route>
+            <Route exact path="/NewE" component={newEmpleados}></Route>
          </BrowserRouter>    
          
     );
