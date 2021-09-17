@@ -1,7 +1,7 @@
 import '../User/diseño.css'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { signOut } from "firebase/auth";
-import Logo from "../Mascotas.png";
+import Logo from "../assets/Mascotas.png";
 import React,{useState} from 'react';
 
 

@@ -16,7 +16,8 @@ a {
 
 a:hover {
   text-decoration: underline;
-  color: #2110be;
+  color: #f8f8f8;
+  
 }
 
 .hr {
@@ -24,12 +25,13 @@ a:hover {
 }
 
 .hero {
-  background: #111010;
+  background: black;
 }
 
 .title,
 .subtitle {
   color: white;
+  
 }
 
 .navbar .navbar-item {
@@ -37,23 +39,32 @@ a:hover {
 }
 
 .navbar .navbar-item.is-active {
-  color: #e4e2ff;
+  background: white;
   font-weight: 700;
 }
 
 .navbar .navbar-item:hover {
-  background: transparent;
-  color: white;
+  background: rgb(3, 3, 3);
+  color: rgb(255, 247, 247);
 }
 
 .navbar .navbar-item a {
-  margin-left: 1rem;
+  background-color: black;
   color: #e4e2ff;
+}
+
+.navbar .navbar-dropdown {
+  background: rgb(8, 8, 8);
+  color: rgb(255, 255, 255);
+}
+
+.navbar .navbar-dropdown:hover{
+  background: rgb(255, 255, 255);
 }
 
 .blog-posts {
   min-height: 100vh;
-  background: #0b0c0c;
+  background: rgb(27, 26, 26);
   padding-top: 4rem;
   padding-bottom: 10rem;
 }
@@ -102,4 +113,12 @@ a:hover {
     transform: translate(-50%, -50%);
     padding: auto;
     width: 300px;
+}
+
+.titulo{
+  background-color: black;
+}
+
+.titulo1{
+  background-color: rgb(27, 26, 26);
 }
