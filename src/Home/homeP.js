@@ -2,8 +2,13 @@ import React from "react";
 import "./homeP.css";
 import Logo2 from "../assets/border.png";
 import Grupo from "../assets/perros1.jpeg";
+import Propietario from "../view/vistaPropietario";
+
 
 export default function homeP() {
+  const redirigir = async () =>{
+    window.location.replace('/propietario');
+  }
   return (
     <div>
       <section class="hero is-medium">
@@ -43,14 +48,18 @@ export default function homeP() {
               <div class="navbar-item">
                 <div class="buttons">
                   <a class="button is-primary" href="LoginE">
-                    <strong>Ingresar</strong>
+                    <strong>Empleados</strong>
+                  </a>
+                  <a class="button is-primary" href="propietario">
+                    <strong>Propietarios</strong>
                   </a>
                 </div>
               </div>
             </div>
           </div>
         </nav>
-        <h1 class="titulo">Mascotas</h1>
+        <h1>Mascotas</h1>
+        <br></br>
         <div class="hero">
           <div class="has-text-centered">
             <img src={Logo2} width="250" height="80"></img>

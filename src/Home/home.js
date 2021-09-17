@@ -1,8 +1,8 @@
-import './centrar.css'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from '../index';
 import React,{useState} from 'react';
+import "./homeP.css";
 
 
   
@@ -46,7 +46,7 @@ export default function Hero() {
     <div> 
           
         <br></br> <br></br> <br></br> <br></br> <br></br> <br></br><br></br>
-          <div class="container " >
+          <div class="container" >
           <section class="hero is-link">
             <div class="heroB">
                 <p class="title">
@@ -56,6 +56,7 @@ export default function Hero() {
             </div>
             </section>
           </div>
+          
           <div class="container is-max-desktop">
           <label class="label">Usuario</label>
           <div class="control has-icons-left has-icons-right">
@@ -78,14 +79,11 @@ export default function Hero() {
             <div class="field">
               <p class="control">
               <div class="buttons is-centered">
-                <button class="button is-primary is-light" onClick={IniciarSesion}>Iniciar Sesion</button>
-              
+                <button class="button is-primary" onClick={IniciarSesion}>Iniciar Sesion</button>
                 </div>
-                
               </p>
             </div>
           </div>
-
         </div>
       </div>
         

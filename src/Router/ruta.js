@@ -7,6 +7,7 @@ import {BrowserRouter,Route} from 'react-router-dom';
 import Empleados from '../view/vistaEmpleado.js';
 import newEmpleados from '../Componentes/newEmpleados.js';
 import administrador from '../User/administrador.js';
+import Propietario from '../view/vistaPropietario.js'; 
 
 function ruta(){
     return (
@@ -19,6 +20,7 @@ function ruta(){
             <Route exact path="/empleado" component={Empleados}></Route>
             <Route exact path="/Admin" component={administrador}></Route>
             <Route exact path="/NewE" component={newEmpleados}></Route>
+            <Route exact path="/propietario" component={Propietario}></Route>
          </BrowserRouter>    
          
     );

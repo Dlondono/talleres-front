@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import { collection,doc, addDoc } from 'firebase/firestore';
 import { db } from '../index';
 import Mascotas from '../modelos/mascotas';
-import './diseñoEmpleados.css';
+import "../Home/homeP.css";
 
 
 export default function Empleado(){
@@ -27,15 +27,15 @@ export default function Empleado(){
 
         <div class="container">
           <h1>Registro de Mascotas</h1>
-            <br></br> <br></br> <br></br> <br></br> <br></br> <br></br><br></br>
+            <br></br> <br></br> <br></br> <br></br> <br></br> 
             <div class="control">
                 <input class="input" type="text" placeholder="Nombre" id="nombre" onChange={(ev)=> setNombre(ev.target.value)}></input>
             </div>
-            <br></br><br></br>
+            <br></br>
             <div class="control">
                 <input class="input" type="text" placeholder="Edad" id="edad" onChange={(ev)=> setEdad(ev.target.value)}></input>
             </div>
-            <br></br><br></br>
+        
             <div class="select" onChange={(ev)=>setRaza(ev.target.value)}>
                 <select>
                 <option>Seleccionar raza</option>
@@ -53,7 +53,8 @@ export default function Empleado(){
                 <option>Grande</option>
                 </select>
             </div>
-            <br></br><br></br>
+            <br></br><br></br><br></br>
+
             <div class="control">
                 <input class="input" type="text" placeholder="Observaciones o cuidados" onChange={(ev)=> setCuidados(ev.target.value)}></input>
             </div>
@@ -62,7 +63,7 @@ export default function Empleado(){
             <div class="field">
               <p class="control">
               <div class="buttons is-centered">
-                <button class="button is-primary is-light" onClick={guardarMascota}>Guardar mascota</button>
+                <button class="button is-primary" onClick={guardarMascota}>Guardar mascota</button>
               
                 </div>
                 

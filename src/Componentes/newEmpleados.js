@@ -1,5 +1,4 @@
 import React from 'react';
-import './contenedor.css';
 
 export default function newEmpleados (){
     return (
@@ -8,7 +7,6 @@ export default function newEmpleados (){
             <br></br>
             <div class="container">
             
-                       
             </div>
         </div>
     )

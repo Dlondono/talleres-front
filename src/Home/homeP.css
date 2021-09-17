@@ -7,7 +7,7 @@
 
 html {
   font-family: 'Nunito Sans', sans-serif;
-  background-color: rgb(34,31,31);
+  background-color: rgb(20, 19, 19);
 }
 
 a {
@@ -59,7 +59,7 @@ a:hover {
 }
 
 .navbar .navbar-dropdown:hover{
-  background: rgb(255, 255, 255);
+  background-color: white;
 }
 
 .blog-posts {
@@ -100,25 +100,37 @@ a:hover {
 .label {
   color: rgb(255, 255, 255);
   text-align: center;
-  padding: 10px;
+  padding: 20px;
 }
 
 .heroB{
-  background-color: black;
+  background-color: rgb(27, 26, 26);
   text-align: center;
 }
 
 .control{ 
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: auto;
-    width: 300px;
+    width: 30%;
 }
 
-.titulo{
-  background-color: black;
+h1{
+  text-align: center;
+  color: white;
+  font-size: 250%;
 }
-
 .titulo1{
   background-color: rgb(27, 26, 26);
+}
+
+.container{
+  background-color: rgb(27, 26, 26);
+  width: 60%;
+  height: 70%;
+  text-align: center;
+}
+
+.mensaje{
+  color: white;
+  font-size: 150%;
 }
