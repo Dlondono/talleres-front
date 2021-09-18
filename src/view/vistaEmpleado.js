@@ -6,6 +6,7 @@ import "../Home/homeP.css";
 
 
 export default function Empleado(){
+    const [idPropietario,setIdPropietario] =useState('');
     const [nombre,setNombre] =useState('');
     const [edad,setEdad] = useState('');
     const [raza,setRaza] =useState('');
@@ -29,6 +30,10 @@ export default function Empleado(){
           <h1>Registro de Mascotas</h1>
             <br></br> <br></br> <br></br> <br></br> <br></br> 
             <div class="control">
+                <input class="input" type="number" placeholder="Id Propietario" id="idPropietario" onChange={(ev)=> setIdPropietario(ev.target.value)}></input>
+            </div>
+            <br></br>
+            <div class="control">
                 <input class="input" type="text" placeholder="Nombre" id="nombre" onChange={(ev)=> setNombre(ev.target.value)}></input>
             </div>
             <br></br>
@@ -43,7 +48,7 @@ export default function Empleado(){
                 <option>opciones 2</option>
                 </select>
             </div>
-
+            <br></br><br></br>
             <div class="select" onChange={(ev)=>setTamaño(ev.target.value)}>
 
                 <select>

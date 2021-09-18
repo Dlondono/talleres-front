@@ -8,6 +8,7 @@ import Empleados from '../view/vistaEmpleado.js';
 import newEmpleados from '../Componentes/newEmpleados.js';
 import administrador from '../User/administrador.js';
 import Propietario from '../view/vistaPropietario.js'; 
+import newPropietario from '../Componentes/newPropietario.js'
 
 function ruta(){
     return (
@@ -21,6 +22,7 @@ function ruta(){
             <Route exact path="/Admin" component={administrador}></Route>
             <Route exact path="/NewE" component={newEmpleados}></Route>
             <Route exact path="/propietario" component={Propietario}></Route>
+            <Route exact path="/NewP" component={newPropietario}></Route>
          </BrowserRouter>    
          
     );

@@ -2,13 +2,20 @@ import React from "react";
 import "../Home/homeP.css";
 import { getAuth } from "firebase/auth";
 import { signOut } from "firebase/auth";
-import Logo3 from '../assets/transporte.jpeg';
-import Dueño from '../assets/dueño.jpeg';
-import Trabajador from '../assets/trabajador.jpeg';
-import Patas from '../assets/patas.jpeg';
+import Empleados from '../assets/empleados.jpeg';
+import Propietario from '../assets/propietario.jpeg';
+import Perro from '../assets/perro.jpeg';
 
 const crearTrabajador = () => {
   window.location.replace("/NewE");
+};
+
+const crearPropietario = () => {
+  window.location.replace("/NewP");
+};
+
+const crearMascota = () => {
+  window.location.replace("/empleado");
 };
 export default function administrador() {
   const auth = getAuth();
@@ -26,8 +33,8 @@ export default function administrador() {
   return (
     <div>
       <nav class="navbar">
-        <div class="navbar-brand">
-          <a class="navbar-item brand-text" href="/Admin">
+        <div class="navbar-item">
+          <a class="navbar-item" href="/Admin">
             <a href="/Admin">
               {" "}
               <strong>Administrador</strong>
@@ -36,10 +43,7 @@ export default function administrador() {
         </div>
         <div class="navbar-end">
           <div class="navbar-item">
-            <a class="navbar-item brand-text" href="/empleado">
-              <a href="/empleado"> Registrar mascota</a>
-            </a>
-            <button class="button is-dark" onClick={salir}>
+            <button class="button is-primary" onClick={salir}>
               Salir
             </button>
             <a> </a>
@@ -52,11 +56,9 @@ export default function administrador() {
         <h3 class="mensaje">Hola Admin. Espero que tengas un buen dia!</h3>
       </div>
       <br></br>
-      <button class="button is-dark" onClick={crearTrabajador}>
-        Registrar Empleado
-      </button>
       
-      <section class="blog-posts">
+      
+      <section class="blog-posts" style= {{padding:"10%"}}>
         <div class="">
           <div class="columns">
             <div class="">
@@ -65,45 +67,42 @@ export default function administrador() {
                 <div class="column post is-4">
                   <article class="columns is-multiline">
                     <div class="column is-12 post-img">
-                      <img src={Trabajador} width="350" height="80" 
-                        alt="Featured Image"
+                      <img src={Empleados} width="300" 
+                        alt="Featured Image" 
                       ></img>
                     </div>
-                    <div class="column is-12 featured-content ">
-                      <h3 class="heading post-category">Category Name</h3>
-                      <a href="#" class="button is-primary">
-                        Registrar Empleado
-                      </a>
+                    <div class="column is-4 featured-content ">
+                      <button class="button is-primary" onClick={crearTrabajador}>
+                     Registrar Empleado
+                       </button>
                     </div>
                   </article>
                 </div>
                 <div class="column post is-4">
                   <article class="columns is-multiline">
                     <div class="column is-12 post-img">
-                      <img src={Dueño} width="300" height="70" 
+                      <img src={Propietario} width="300" 
                         alt="Featured Image"
                       ></img>
                     </div>
                     <div class="column is-12 featured-content ">
-                      <h3 class="heading post-category">Category Name</h3>
-                      <a href="#" class="button is-primary">
-                        Registrar Propietario
-                      </a>
+                      <button class="button is-primary" onClick={crearPropietario}>
+                     Registrar Propietario
+                       </button>
                     </div>
                   </article>
                 </div>
                 <div class="column post is-4">
                   <article class="columns is-multiline">
                     <div class="column is-12 post-img">
-                      <img src={Patas} width="230" height="80" 
+                      <img src={Perro} width="300" 
                         alt="Featured Image"
                       ></img>
                     </div>
                     <div class="column is-12 featured-content ">
-                      <h3 class="heading post-category">Category Name</h3>
-                      <a href="#" class="button is-primary">
-                        Registrar Mascota
-                      </a>
+                      <button class="button is-primary" onClick={crearMascota}>
+                     Registrar Mascota
+                       </button>
                     </div>
                   </article>
                 </div>

@@ -7,6 +7,5 @@ export default function Empleados (nombre, cc, creador, direccion, email, fechaD
     this.email = email;
     this.fechaDeCreacion = fechaDeCreacion;
     this.fechadeActualizacion = fechadeActualizacion;
-    this.rol = rol;
 }
 

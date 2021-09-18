@@ -37,7 +37,7 @@ export default function homeP() {
                 <a class="navbar-link">Servicios</a>
 
                 <div class="navbar-dropdown">
-                  <a class="navbar-item">Sobre nosotros</a>
+                  <a class="navbar-item" href="#Sobre">Sobre nosotros</a>
                   <a class="navbar-item">Clases</a>
                   <a class="navbar-item">Transporte</a>
                 </div>
@@ -84,6 +84,7 @@ export default function homeP() {
                     </div>
                     <div class="column is-5 featured-content va">
                       <div>
+                        <a name="Sobre" />
                         <h1 class="titulo1">Sobre nosotros</h1>
                         <p class="post-excerpt">
                           Guardería Mascotas, ofrece nuevas experiencias para
@@ -102,9 +103,6 @@ export default function homeP() {
               <div class="columns is-multiline">
                 <div class="column post is-6">
                   <article class="columns is-multiline">
-                    <div class="column is-12 post-img">
-                      <img src="" alt="Guarderia mascota"></img>
-                    </div>
                     <div class="column is-12 featured-content ">
                       <h3 class="heading post-category">Category Name</h3>
                       <h1 class="title post-title">
