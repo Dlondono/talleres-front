@@ -3,6 +3,9 @@ import "../Home/homeP.css";
 import { getAuth } from "firebase/auth";
 import { signOut } from "firebase/auth";
 import Logo3 from '../assets/transporte.jpeg';
+import Dueño from '../assets/dueño.jpeg';
+import Trabajador from '../assets/trabajador.jpeg';
+import Patas from '../assets/patas.jpeg';
 
 const crearTrabajador = () => {
   window.location.replace("/NewE");
@@ -50,15 +53,65 @@ export default function administrador() {
       </div>
       <br></br>
       <button class="button is-dark" onClick={crearTrabajador}>
-        Crear trabajador
+        Registrar Empleado
       </button>
-      <div>
-        
-            <img
-              src={Logo3} width="250" height="80"
-              alt="Placeholder image"
-            ></img>
-        </div>
+      
+      <section class="blog-posts">
+        <div class="">
+          <div class="columns">
+            <div class="">
+              <div class="columns is-multiline">
+  
+                <div class="column post is-4">
+                  <article class="columns is-multiline">
+                    <div class="column is-12 post-img">
+                      <img src={Trabajador} width="350" height="80" 
+                        alt="Featured Image"
+                      ></img>
+                    </div>
+                    <div class="column is-12 featured-content ">
+                      <h3 class="heading post-category">Category Name</h3>
+                      <a href="#" class="button is-primary">
+                        Registrar Empleado
+                      </a>
+                    </div>
+                  </article>
+                </div>
+                <div class="column post is-4">
+                  <article class="columns is-multiline">
+                    <div class="column is-12 post-img">
+                      <img src={Dueño} width="300" height="70" 
+                        alt="Featured Image"
+                      ></img>
+                    </div>
+                    <div class="column is-12 featured-content ">
+                      <h3 class="heading post-category">Category Name</h3>
+                      <a href="#" class="button is-primary">
+                        Registrar Propietario
+                      </a>
+                    </div>
+                  </article>
+                </div>
+                <div class="column post is-4">
+                  <article class="columns is-multiline">
+                    <div class="column is-12 post-img">
+                      <img src={Patas} width="230" height="80" 
+                        alt="Featured Image"
+                      ></img>
+                    </div>
+                    <div class="column is-12 featured-content ">
+                      <h3 class="heading post-category">Category Name</h3>
+                      <a href="#" class="button is-primary">
+                        Registrar Mascota
+                      </a>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
+    </div>
   );
 }
