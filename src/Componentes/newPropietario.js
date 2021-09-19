@@ -1,32 +1,38 @@
 import React,{useState} from 'react';
-import { collection,doc, addDoc } from 'firebase/firestore';
-import { db } from '../index';
-import Mascotas from '../modelos/mascotas';
 import "../Home/homeP.css";
+import axios from 'axios';
 
-
+  
+const url="https://api-propietarios.herokuapp.com/api/student"
 export default function Propietario(){
     const [nombre,setNombre] =useState('');
-    const [apellido,setApellido] =useState('');
     const [cedula,setCedula] =useState('');
     const [email,setEmail] =useState('');
     const [direccion,setDireccion] = useState('');
     const [celular,setCelular] =useState('');
-    
-    const guardarPropietario=async()=>{
+       const guardarPropietario=async()=>{
+        axios.post('https://api-propietarios.herokuapp.com/api/student', {
+          name: nombre,
+          cc:cedula,
+          email:email,
+          direccion:direccion,
+          celular:celular
+        })
+        .then(function (response) {
+          
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
   
     return(
-
+      
         <div class="container">
           <h1>Registro de Propietario</h1>
             <br></br> <br></br> <br></br>  
             <div class="control">
-            <input class="input" type="text" placeholder="Nombre" id="nombre" onChange={(ev)=> setNombre(ev.target.value)}></input>
-            </div>
-            <br></br>
-            <div class="control">
-                <input class="input" type="text" placeholder="Apellido" id="apellido" onChange={(ev)=> setApellido(ev.target.value)}></input>
+            <input class="input" type="text" placeholder="Nombre completo" id="nombre" onChange={(ev)=> setNombre(ev.target.value)}></input>
             </div>
             <br></br>
             <div class="control">
@@ -58,5 +64,6 @@ export default function Propietario(){
             </div>
           </div>
             </div>
+                    
     )
 }
