@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 import { collection,doc, addDoc } from 'firebase/firestore';
 import { db } from '../index';
-import Mascotas from '../modelos/mascotas';
 import "../Home/homeP.css";
 import Modal from "react-modal";
 import axios from 'axios';
@@ -9,7 +8,7 @@ import axios from 'axios';
 
 Modal.setAppElement("#root");
 
-
+const url="https://mascotas-empleados.herokuapp.com/"
 export default function Empleado(){
     const [isOpen, setIsOpen] = useState(false);
     const [idPropietario,setIdPropietario] =useState('');
@@ -21,17 +20,25 @@ export default function Empleado(){
     function toggleModal() {
       setIsOpen(!isOpen);
     }
-    const guardarMascota=async()=>{
-        let s =  new Mascotas(nombre,edad,raza,tamaño,cuidados,"dueño");
-        await addDoc(collection (db, "Mascotas"), {
-          name: s.nombre,
-          edad: s.edad,
-          raza: s.raza,
-          tamaño:s.tamaño,
-          cuidados:s.cuidados,
-          owner:s.owner,
-        }); 
-    }
+    
+    const guardarMascotas=(e)=>{
+      e.preventDefault();
+      axios.post('https://mascotas-empleados.herokuapp.com/mascota', {
+        tamaño: tamaño,
+        raza: raza,
+        owner: idPropietario,
+        name: nombre,
+        edad: edad,
+        cuidados: cuidados 
+      })
+      
+      .then(function (response) {
+        toggleModal();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
   
     return(
       <form>
@@ -91,7 +98,7 @@ export default function Empleado(){
             <div class="field">
               <p class="control">
               <div class="buttons is-centered">
-                <button class="button is-primary" onClick={guardarMascota}>Guardar mascota</button>
+                <button class="button is-primary" onClick={(e)=>{guardarMascotas(e)}} >Guardar mascota</button>
               
                 </div>
                 

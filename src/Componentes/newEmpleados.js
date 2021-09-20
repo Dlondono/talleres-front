@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 import { collection,doc, addDoc } from 'firebase/firestore';
 import { db } from '../index';
-import Mascotas from '../modelos/mascotas';
 import "../Home/homeP.css";
 import Modal from "react-modal";
 import axios from 'axios';
@@ -9,7 +8,7 @@ import axios from 'axios';
 
 Modal.setAppElement("#root");
 
-
+const url="https://mascotas-empleados.herokuapp.com/"
 
 export default function Empleado(){
     const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +22,26 @@ export default function Empleado(){
       setIsOpen(!isOpen);
     }
 
-    const guardarEmpleado=async()=>{
+    const guardarEmpleado=(e)=>{
+        e.preventDefault();
+        axios.post('https://mascotas-empleados.herokuapp.com/empleado', {
+            cc: id ,
+            creador: "Admin",
+            direccion: direccion ,
+            email: email ,
+            fechaDeActualizacion: "Hoy",
+            fechaDeCreacion: "Ayer",
+            nombre: nombre ,
+            rol: rol 
+        })
+        
+        .then(function (response) {
+          //toggleModal();
+          console.log("funciono");
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
     
   
@@ -76,7 +94,7 @@ export default function Empleado(){
             <div class="field">
               <p class="control">
               <div class="buttons is-centered">
-                <button class="button is-primary" onClick={guardarEmpleado}>Guardar empleado</button> 
+                <button class="button is-primary" onClick={(e)=>{guardarEmpleado(e)}}>Guardar empleado</button> 
                 </div>
                 
               </p>

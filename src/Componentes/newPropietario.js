@@ -6,7 +6,7 @@ import Modal from "react-modal";
 Modal.setAppElement("#root");
 
   
-const url="https://api-propietarios.herokuapp.com/api/student"
+const url="https://api-propietarios.herokuapp.com/api/propietario"
 
 
 export default function Propietario(){
@@ -20,7 +20,8 @@ export default function Propietario(){
       setIsOpen(!isOpen);
     }
     
-       const guardarPropietario=async()=>{
+       const guardarPropietario=(e)=>{
+        e.preventDefault();
         axios.post('https://api-propietarios.herokuapp.com/api/student', {
           name: nombre,
           cc:cedula,
@@ -30,7 +31,7 @@ export default function Propietario(){
         })
         
         .then(function (response) {
-          toggleModal()
+          toggleModal();
         })
         .catch(function (error) {
           console.log(error);
@@ -84,7 +85,7 @@ export default function Propietario(){
             <div class="field">
               <p class="control">
               <div class="buttons is-centered">
-                <button class="button is-primary" onClick={guardarPropietario}>Guardar Propietario</button> 
+                <button class="button is-primary" onClick={(e)=>{guardarPropietario(e)}}>Guardar Propietario</button> 
                 </div>
                 
               </p>
