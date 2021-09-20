@@ -1,6 +1,8 @@
 import React from "react";
 import "./homeP.css";
 import Logo2 from "../assets/border.png";
+import Clases from "../assets/clases.jpg"
+import Transporte from "../assets/transporte.png"
 import Grupo from "../assets/perros1.jpeg";
 import Propietario from "../view/vistaPropietario";
 
@@ -38,11 +40,14 @@ export default function homeP() {
 
                 <div class="navbar-dropdown">
                   <a class="navbar-item" href="#Sobre">Sobre nosotros</a>
-                  <a class="navbar-item">Clases</a>
-                  <a class="navbar-item">Transporte</a>
+                  <a class="navbar-item" href="#Clases">Clases</a>
+                  <a class="navbar-item" href="#Transporte">Transporte</a>
                 </div>
               </div>
             </div>
+
+            
+
 
             <div class="navbar-end">
               <div class="navbar-item">
@@ -99,102 +104,71 @@ export default function homeP() {
                   </article>
                 </div>
               </div>
-              <hr></hr>
+             
+
+              
+              <br></br>
               <div class="columns is-multiline">
                 <div class="column post is-6">
                   <article class="columns is-multiline">
                     <div class="column is-12 featured-content ">
-                      <h3 class="heading post-category">Category Name</h3>
-                      <h1 class="title post-title">
-                        Slightly Longer Blog Post Title
+                    <a name="Clases" />
+                      <h1 class="titulo1">
+                        Clases
                       </h1>
                       <p class="post-excerpt">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Accusamus ratione harum eaque, animi nulla tempore
-                        quis, quam voluptatum.
+                      Si quieres cambiar algún comportamiento de tu perro o si quieres resaltar 
+                      su potencial, nosotros te podemos ayudar. Contamos con expertos en comportamiento 
+                      y etología canina del Club Del Canino.
                       </p>
                       <br></br>
-                      <a href="#" class="button is-primary">
-                        Read More
-                      </a>
                     </div>
                   </article>
                 </div>
+
                 <div class="column post is-6">
                   <article class="columns is-multiline">
                     <div class="column is-12 post-img">
-                      <img
-                        src="https://cdn.emk.dev/templates/post-img.png"
-                        alt="Featured Image"
+                    <img
+                        src={Clases}
+                        width="700"
+                        height="80"
+                        alt="Clases"
                       ></img>
                     </div>
                     <div class="column is-12 featured-content ">
-                      <h3 class="heading post-category">Category Name</h3>
-                      <h1 class="title post-title">
-                        Slightly Longer Blog Post Title
-                      </h1>
-                      <p class="post-excerpt">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Accusamus ratione harum eaque, animi nulla tempore
-                        quis, quam voluptatum.
-                      </p>
-                      <br></br>
-                      <a href="#" class="button is-primary">
-                        Read More
-                      </a>
                     </div>
                   </article>
                 </div>
-                <div class="column post is-4">
-                  <article class="columns is-multiline">
-                    <div class="column is-12 post-img">
+              <hr></hr>
+
+              <div class="columns featured-post is-multiline">
+                <div class="column is-12 post">
+                  <article class="columns featured">
+                    <div class="column is-6 post-img ">
+                      <br></br>
                       <img
-                        src="https://cdn.emk.dev/templates/post-img.png"
-                        alt="Featured Image"
+                        src={Transporte}
+                        width="700"
+                        height="80"
+                        alt="Sobre nosotros"
                       ></img>
                     </div>
-                    <div class="column is-12 featured-content ">
-                      <h3 class="heading post-category">Category Name</h3>
-                      <h1 class="title post-title">
-                        Slightly Longer Blog Post Title
-                      </h1>
-                      <p class="post-excerpt">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Accusamus ratione harum eaque, animi nulla tempore
-                        quis, quam voluptatum.
-                      </p>
-                      <br></br>
-                      <a href="#" class="button is-primary">
-                        Read More
-                      </a>
+                    <div class="column is-5 featured-content va">
+                      <div>
+                        <a name="Transporte" />
+                        <h1 class="titulo1">Transporte</h1>
+                        <p class="post-excerpt">
+                        Para tu comodidad, contamos con el
+                        servicio de transporte, con el cual recogeremos 
+                        y llevaremos a tu mascota hasta la seguridad de tu casa.
+                        </p>
+                        <br></br>
+                      </div>
                     </div>
                   </article>
                 </div>
-                <div class="column post is-4">
-                  <article class="columns is-multiline">
-                    <div class="column is-12 post-img">
-                      <img
-                        src="https://cdn.emk.dev/templates/post-img.png"
-                        alt="Featured Image"
-                      ></img>
-                    </div>
-                    <div class="column is-12 featured-content ">
-                      <h3 class="heading post-category">Category Name</h3>
-                      <h1 class="title post-title">
-                        Slightly Longer Blog Post Title
-                      </h1>
-                      <p class="post-excerpt">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Accusamus ratione harum eaque, animi nulla tempore
-                        quis, quam voluptatum.
-                      </p>
-                      <br></br>
-                      <a href="#" class="button is-primary">
-                        Read More
-                      </a>
-                    </div>
-                  </article>
-                </div>
+              </div>
               </div>
             </div>
           </div>
