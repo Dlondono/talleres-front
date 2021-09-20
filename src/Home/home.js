@@ -18,7 +18,8 @@ async function obtenerValor(id) {
   let data = await obtenerDoc(id);
   if (data==="admin"){
     window.location.replace('/Admin')
-  }if(data==="empleado"){
+  }
+  else{
     window.location.replace('/usuario')
   }
   

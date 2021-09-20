@@ -22,7 +22,7 @@ export default function Propietario(){
     
        const guardarPropietario=(e)=>{
         e.preventDefault();
-        axios.post('https://api-propietarios.herokuapp.com/api/student', {
+        axios.post('https://api-propietarios.herokuapp.com/api/propietario', {
           name: nombre,
           cc:cedula,
           email:email,
