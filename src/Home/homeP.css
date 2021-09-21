@@ -161,3 +161,8 @@ h1{
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
 }
+
+.table{
+  background-color: rgb(20, 19, 19);
+  color: white;
+}
