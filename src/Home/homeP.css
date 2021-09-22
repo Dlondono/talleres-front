@@ -165,4 +165,16 @@ h1{
 .table{
   background-color: rgb(20, 19, 19);
   color: white;
+  border: 5px solid white;
+
+ 
+}
+
+.table_wrapper {
+  overflow-x: auto;
+  text-align: center;
+}
+
+h2{
+  color: white;
 }

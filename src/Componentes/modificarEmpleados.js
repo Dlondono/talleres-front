@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState , useEffect } from "react";
 import { collection, doc, addDoc } from "firebase/firestore";
 import { db } from "../index";
 import "../Home/homeP.css";
 import Modal from "react-modal";
 import axios from "axios";
 
+
 Modal.setAppElement("#root");
+
+
 
 const url = "https://mascotas-empleados.herokuapp.com/";
 
@@ -17,13 +20,12 @@ export default function Empleado() {
   const [email, setEmail] = useState("");
   const [direccion, setDireccion] = useState("");
 
+  
+
   function toggleModal() {
     setIsOpen(!isOpen);
   }
 
-  const metodo = () => {
-    console.log("metodo");
-  };
   const guardarEmpleado = (e) => {
     e.preventDefault();
     axios
@@ -40,25 +42,26 @@ export default function Empleado() {
 
       .then(function (response) {
         toggleModal();
+        
       })
       .catch(function (error) {
         console.log(error);
       });
   };
 
-  const [posts, setPosts] = useState({ blogs: [] });
-
-  useEffect(() => {
-    const fetchPostList = async () => {
-      const { data } = await axios(
-        "https://mascotas-empleados.herokuapp.com/getEmpleados"
-      );
-      setPosts({ blogs: data });
-      console.log(data);
-    };
-    fetchPostList();
-  }, [setPosts]);
-
+    const [posts, setPosts] = useState({ blogs: [] });
+  
+    useEffect(() => {
+      const fetchPostList = async () => {
+        const { data } = await axios(
+          "https://mascotas-empleados.herokuapp.com/getEmpleados"
+        );
+        setPosts({ blogs: data });
+        console.log(data);
+      };
+      fetchPostList();
+    }, [setPosts]);
+  
   return (
     <form>
       <div className="App">
@@ -82,7 +85,7 @@ export default function Empleado() {
         </Modal>
       </div>
       <div class="container">
-        <h1>Registro de Empleados</h1>
+        <h1>Modificar Empleados</h1>
         <br></br> <br></br> <br></br> <br></br> <br></br>
         <div class="control">
           <input
@@ -153,36 +156,16 @@ export default function Empleado() {
                     guardarEmpleado(e);
                   }}
                 >
-                  Guardar empleado
+                  Modificar empleado
                 </button>
               </div>
             </p>
             <hr></hr>
-              <h2>Seleccione el empleado que desea modificar</h2>
-              <br></br>
-            <div class="table_wrapper is-centered">
-              <table class="table is-bordered">
-                <thead>
-                  <tr>
-                    <th style= {{color:"white"}}>ID</th>
-                    <th style= {{color:"white"}}>Email</th>
-                    <th style= {{color:"white"}}>Rol</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {posts.blogs &&
-                    posts.blogs.map((item) => (
-                      <tr key={item.id}>
-                        <td onClick={metodo}>{item.cc}</td>
-                        <td>{item.email}</td>
-                        <td>{item.rol}</td>
-                      </tr>
-                    ))}
-                </tbody>
-              </table>
-            </div>
+            
+            <div>
           </div>
         </div>
+      </div>
       </div>
     </form>
   );
