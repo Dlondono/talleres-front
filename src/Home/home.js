@@ -12,15 +12,25 @@ const Registrarse = async () =>{
 const obtenerDoc= async (id) =>{
   const docRef = doc(db, "Empleados", id);
   const docSnap = await getDoc(docRef);
-  return docSnap.data().rol;
+  if (docSnap.data() == null ){
+    return null;
+  }
+  else{
+    return docSnap.data().rol;
+  }
+  
 }
 async function obtenerValor(id) {
   let data = await obtenerDoc(id);
   if (data==="admin"){
     window.location.replace('/Admin')
   }
-  else{
+  else if (data != null){
     window.location.replace('/usuario')
+    console.log(data);
+  }
+  else {
+    window.alert('no tiene rol')
   }
   
 }
@@ -83,6 +93,15 @@ export default function Hero() {
                 <button class="button is-primary" onClick={IniciarSesion}>Iniciar Sesion</button>
                 </div>
               </p>
+            </div>
+            <div class="container is-max-desktop ">
+            <div class="field">
+              <p class="control">
+              <div class="buttons is-centered">
+                <button class="button is-primary" onClick={Registrarse}>Registrarse</button>
+                </div>
+              </p>
+            </div>
             </div>
           </div>
         </div>
