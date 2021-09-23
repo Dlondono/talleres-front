@@ -42,6 +42,19 @@ export default function Empleado() {
         console.log(error);
       });
   };
+  const eliminarEmpleado = (id,e) => {
+    e.preventDefault();
+    axios
+      .delete("https://api-empleados.herokuapp.com/api/empleado/"+id, {
+
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
   const guardarEmpleado = (e) => {
     e.preventDefault();
     if(estado!="editar"){
@@ -70,7 +83,7 @@ export default function Empleado() {
         creador: "Admin",
         direccion: direccion,
         email: email,
-        fechaDeActualizacion: "Hoy",
+        fechaDeActualizacion: Date.now(),
         fechaDeCreacion: "Ayer",
         nombre: nombre,
         rol: rol,
@@ -216,17 +229,26 @@ export default function Empleado() {
                     posts.blogs.map((item) => (
                       <tr key={item.id}>
                         <td>{item.cc}</td>
-                        <td>{item.email}</td>
-                        <td>{item.rol}</td>          
-                        <button
+                        <td>{item.email}</td>                    
+                        <td>{item.rol}</td>              
+                        <td><button
                           class="button is-primary"
                           onClick={(e) => {
                             buscarEmpleado(item.id,e);
                           }}
                         >
                           Editar
-                        </button>
+                        </button> </td> 
+                        <td><button
+                          class="button is-primary"
+                          onClick={(e) => {
+                            eliminarEmpleado(item.id,e);
+                          }}
+                        >
+                          Borrar
+                        </button></td>         
                       </tr>
+                      
                     ))}
                 </tbody>
               </table>
