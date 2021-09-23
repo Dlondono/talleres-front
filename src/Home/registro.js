@@ -1,5 +1,6 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import React, {useState} from 'react';
+import "../Home/homeP.css";
 
 function retroceder(){
     window.location.replace('/')
@@ -16,7 +17,7 @@ export default (props)=> {
             .then((userCredential) => {
             // Signed in
              //const user = userCredential.user;
-             window.location.replace('/usuario')
+             window.location.replace('/loginE')
             })
             .catch((error) => {
                 //const errorCode = error.code;
@@ -27,14 +28,14 @@ export default (props)=> {
   }
   return (
     <div class="container">
-            <section class="hero is-link">
-            <div class="hero-body">
+          <hr></hr>
+            
                 <p class="title">
-                Registro
+                Registro de usarios
                 </p>
-                <p class="subtitle">Termine de ingresar los datos para completar el registro</p>                
-            </div>
-            </section>
+                           
+       
+          
             <br></br>
             <div class="container is-full">
                 <div class="field">
@@ -66,13 +67,6 @@ export default (props)=> {
                     <button class="button is-primary is-light" onClick={newUser}>Completar registro</button>
                     <button class="button is-link is-light" onClick={retroceder}>Regresar</button>
                 </div>
-                <footer class="footer">
-                    <div class="content has-text-centered">
-                        <p>
-                          Registro para nuestra pagina <strong>Mascotas</strong>
-                        </p>
-                    </div>
-                </footer>
             </div>
             
         </div>
