@@ -1,6 +1,4 @@
 import React,{useState} from 'react';
-import { collection,doc, addDoc } from 'firebase/firestore';
-import { db } from '../index';
 import "../Home/homeP.css";
 import Modal from "react-modal";
 import axios from 'axios';
@@ -8,7 +6,6 @@ import axios from 'axios';
 
 Modal.setAppElement("#root");
 
-const url="https://mascotas-empleados.herokuapp.com/"
 export default function Empleado(){
     const [isOpen, setIsOpen] = useState(false);
     const [idPropietario,setIdPropietario] =useState('');

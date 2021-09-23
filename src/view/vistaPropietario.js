@@ -1,6 +1,3 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
-import { db } from '../index';
 import React,{useState} from 'react';
 import "../Home/homeP.css";
 

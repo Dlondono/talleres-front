@@ -1,31 +1,50 @@
-import React, { useState , useEffect } from "react";
-import { collection, doc, addDoc } from "firebase/firestore";
-import { db } from "../index";
+import React, { useState, useEffect } from "react";
 import "../Home/homeP.css";
 import Modal from "react-modal";
 import axios from "axios";
 
-
 Modal.setAppElement("#root");
 
-
-
 const url = "https://mascotas-empleados.herokuapp.com/";
+export default class Editar extends React.Component {
 
-export default function Empleado() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: this.props.location.state,
+    }
+  }
+
+  alertMessage() {
+    console.log(this.props.location.state);
+  }
+  render() {
+    const { state } = this.props.location
+    return (
+      <div>
+      <button > {state}</button>
+      <Empleado/>
+      </div>
+    )
+  }
+}
+
+function Empleado() {
   const [isOpen, setIsOpen] = useState(false);
   const [id, setId] = useState("");
   const [nombre, setNombre] = useState("");
   const [rol, setRol] = useState("");
   const [email, setEmail] = useState("");
   const [direccion, setDireccion] = useState("");
-
-  
-
+  const [empleado,setEmpleado]=useState("");
   function toggleModal() {
     setIsOpen(!isOpen);
   }
-
+  
+  const editEmpleado = (id) => {
+    setEmpleado(id);
+    console.log(empleado);
+   };
   const guardarEmpleado = (e) => {
     e.preventDefault();
     axios
@@ -42,29 +61,28 @@ export default function Empleado() {
 
       .then(function (response) {
         toggleModal();
-        
       })
       .catch(function (error) {
         console.log(error);
       });
   };
 
-    const [posts, setPosts] = useState({ blogs: [] });
-  
-    useEffect(() => {
-      const fetchPostList = async () => {
-        const { data } = await axios(
-          "https://mascotas-empleados.herokuapp.com/getEmpleados"
-        );
-        setPosts({ blogs: data });
-        console.log(data);
-      };
-      fetchPostList();
-    }, [setPosts]);
-  
+  const [posts, setPosts] = useState({ blogs: [] });
+
+  useEffect(() => {
+    const fetchPostList = async () => {
+      const { data } = await axios(
+        "https://mascotas-empleados.herokuapp.com/getEmpleados"
+      );
+      setPosts({ blogs: data });
+    };
+    fetchPostList();
+  }, [setPosts]);
+
   return (
     <form>
       <div className="App">
+        
         <Modal
           isOpen={isOpen}
           onRequestClose={toggleModal}
@@ -85,7 +103,7 @@ export default function Empleado() {
         </Modal>
       </div>
       <div class="container">
-        <h1>Modificar Empleados</h1>
+        <h1>Modificar Empleado</h1>
         <br></br> <br></br> <br></br> <br></br> <br></br>
         <div class="control">
           <input
@@ -156,17 +174,16 @@ export default function Empleado() {
                     guardarEmpleado(e);
                   }}
                 >
-                  Modificar empleado
+                  Guardar empleado
                 </button>
               </div>
             </p>
-            <hr></hr>
-            
-            <div>
           </div>
         </div>
-      </div>
       </div>
     </form>
   );
 }
+
+
+

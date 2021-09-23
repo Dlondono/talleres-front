@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { collection, doc, addDoc } from "firebase/firestore";
-import { db } from "../index";
 import "../Home/homeP.css";
 import Modal from "react-modal";
 import axios from "axios";
+import {Link} from 'react-router-dom';
+
 
 Modal.setAppElement("#root");
 
@@ -16,16 +16,35 @@ export default function Empleado() {
   const [rol, setRol] = useState("");
   const [email, setEmail] = useState("");
   const [direccion, setDireccion] = useState("");
-
+  const [estado, setEstado] = useState("");
+  const [docId, setDocId] = useState("");
   function toggleModal() {
     setIsOpen(!isOpen);
   }
+  
+  const buscarEmpleado = (id,e) => {
+    e.preventDefault();
+    axios
+      .get("https://api-empleados.herokuapp.com/api/empleado/"+id, {
 
-  const metodo = () => {
-    console.log("metodo");
+      })
+      .then(function (response) {
+        console.log(response);
+        setId(response.data.cc);
+        setNombre(response.data.nombre);
+        setEmail(response.data.email);
+        setDireccion(response.data.direccion);
+        setRol(response.data.rol);
+        setEstado("editar");
+        setDocId(id);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
   const guardarEmpleado = (e) => {
     e.preventDefault();
+    if(estado!="editar"){
     axios
       .post("https://mascotas-empleados.herokuapp.com/empleado", {
         cc: id,
@@ -44,6 +63,25 @@ export default function Empleado() {
       .catch(function (error) {
         console.log(error);
       });
+    }else{
+      axios
+      .put("https://mascotas-empleados.herokuapp.com/empleado/"+docId, {
+        cc: id,
+        creador: "Admin",
+        direccion: direccion,
+        email: email,
+        fechaDeActualizacion: "Hoy",
+        fechaDeCreacion: "Ayer",
+        nombre: nombre,
+        rol: rol,
+      })
+      .then(function (response) {
+        toggleModal();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
   };
 
   const [posts, setPosts] = useState({ blogs: [] });
@@ -54,7 +92,6 @@ export default function Empleado() {
         "https://mascotas-empleados.herokuapp.com/getEmpleados"
       );
       setPosts({ blogs: data });
-      console.log(data);
     };
     fetchPostList();
   }, [setPosts]);
@@ -62,6 +99,7 @@ export default function Empleado() {
   return (
     <form>
       <div className="App">
+        
         <Modal
           isOpen={isOpen}
           onRequestClose={toggleModal}
@@ -92,6 +130,7 @@ export default function Empleado() {
             id="id"
             required="true"
             onChange={(ev) => setId(ev.target.value)}
+            value={id}
           ></input>
         </div>
         <br></br>
@@ -103,6 +142,7 @@ export default function Empleado() {
             id="nombre"
             required="true"
             onChange={(ev) => setNombre(ev.target.value)}
+            value={nombre}
           ></input>
         </div>
         <br></br>
@@ -114,6 +154,7 @@ export default function Empleado() {
             id="direccion"
             required="true"
             onChange={(ev) => setDireccion(ev.target.value)}
+            value={direccion}
           ></input>
         </div>
         <br></br>
@@ -125,6 +166,7 @@ export default function Empleado() {
             id="email"
             required="true"
             onChange={(ev) => setEmail(ev.target.value)}
+            value={email}
           ></input>
         </div>
         <br></br>
@@ -133,7 +175,7 @@ export default function Empleado() {
           required="true"
           onChange={(ev) => setRol(ev.target.value)}
         >
-          <select>
+          <select value={rol}>
             <option>Seleccionar Rol</option>
             <option>Director</option>
             <option>Profesor</option>
@@ -173,9 +215,17 @@ export default function Empleado() {
                   {posts.blogs &&
                     posts.blogs.map((item) => (
                       <tr key={item.id}>
-                        <td onClick={metodo}>{item.cc}</td>
+                        <td>{item.cc}</td>
                         <td>{item.email}</td>
-                        <td>{item.rol}</td>
+                        <td>{item.rol}</td>          
+                        <button
+                          class="button is-primary"
+                          onClick={(e) => {
+                            buscarEmpleado(item.id,e);
+                          }}
+                        >
+                          Editar
+                        </button>
                       </tr>
                     ))}
                 </tbody>
