@@ -9,20 +9,22 @@ Modal.setAppElement("#root");
 
 const url = "https://mascotas-empleados.herokuapp.com/";
 
-export default function Empleado() {
+export default function Talleres() {
   const [isOpen, setIsOpen] = useState(false);
   const [id, setId] = useState("");
   const [nombre, setNombre] = useState("");
-  const [rol, setRol] = useState("");
-  const [email, setEmail] = useState("");
-  const [direccion, setDireccion] = useState("");
+  const [nombreAdmin, setNombreAdmin] = useState("");
+  const [latitud, setLatitud] = useState("");
+  const [longitud, setLongitud] = useState("");
+  const [horario, setHorario] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+  const [municipio, setMunicipio] = useState("");
   const [estado, setEstado] = useState("");
-  const [docId, setDocId] = useState("");
   function toggleModal() {
     setIsOpen(!isOpen);
   }
   
-  const buscarEmpleado = (id,e) => {
+  const buscarTaller = (id,e) => {
     e.preventDefault();
     axios
       .get("https://api-empleados.herokuapp.com/api/empleado/"+id, {
@@ -32,17 +34,20 @@ export default function Empleado() {
         console.log(response);
         setId(response.data.cc);
         setNombre(response.data.nombre);
-        setEmail(response.data.email);
-        setDireccion(response.data.direccion);
-        setRol(response.data.rol);
+        setNombreAdmin(response.data.nombreAdmin);
+        setLatitud(response.data.latitud);
+        setLongitud(response.data.longitud);
+        setHorario(response.data.horario);
+        setDescripcion(response.data.descripcion);
+        setMunicipio(response.data.municipio);
         setEstado("editar");
-        setDocId(id);
+        
       })
       .catch(function (error) {
         console.log(error);
       });
   };
-  const eliminarEmpleado = (id,e) => {
+  const eliminarTaller = (id,e) => {
     e.preventDefault();
     axios
       .delete("https://api-empleados.herokuapp.com/api/empleado/"+id, {
@@ -55,19 +60,19 @@ export default function Empleado() {
         console.log(error);
       });
   };
-  const guardarEmpleado = (e) => {
+  const guardarTaller = (e) => {
     e.preventDefault();
     if(estado!="editar"){
     axios
       .post("https://mascotas-empleados.herokuapp.com/empleado", {
-        cc: id,
-        creador: "Admin",
-        direccion: direccion,
-        email: email,
-        fechaDeActualizacion: "Hoy",
-        fechaDeCreacion: "Ayer",
+        id: id,
         nombre: nombre,
-        rol: rol,
+        nombreAdmin : nombreAdmin,
+        latitud: latitud,
+        longitud: longitud,
+        horario: horario,
+        descripcion: descripcion,
+        municipio : municipio
       })
 
       .then(function (response) {
@@ -78,15 +83,15 @@ export default function Empleado() {
       });
     }else{
       axios
-      .put("https://mascotas-empleados.herokuapp.com/empleado/"+docId, {
-        cc: id,
-        creador: "Admin",
-        direccion: direccion,
-        email: email,
-        fechaDeActualizacion: Date.now(),
-        fechaDeCreacion: "Ayer",
+      .put("https://mascotas-empleados.herokuapp.com/empleado/"+id, {
+        id: id,
         nombre: nombre,
-        rol: rol,
+        nombreAdmin : nombreAdmin,
+        latitud: latitud,
+        longitud: longitud,
+        horario: horario,
+        descripcion: descripcion,
+        municipio : municipio
       })
       .then(function (response) {
         toggleModal();
@@ -133,7 +138,7 @@ export default function Empleado() {
         </Modal>
       </div>
       <div class="container">
-        <h1>Registro de Empleados</h1>
+        <h1>Registro de Talleres</h1>
         <br></br> <br></br> <br></br> <br></br> <br></br>
         <div class="control">
           <input
@@ -163,11 +168,11 @@ export default function Empleado() {
           <input
             class="input"
             type="text"
-            placeholder="Direccion"
-            id="direccion"
+            placeholder="NombreAdmin"
+            id="nombreAdmin"
             required="true"
-            onChange={(ev) => setDireccion(ev.target.value)}
-            value={direccion}
+            onChange={(ev) => setNombreAdmin(ev.target.value)}
+            value={nombreAdmin}
           ></input>
         </div>
         <br></br>
@@ -175,25 +180,60 @@ export default function Empleado() {
           <input
             class="input"
             type="text"
-            placeholder="Email"
-            id="email"
+            placeholder="Latitud"
+            id="latitud"
             required="true"
-            onChange={(ev) => setEmail(ev.target.value)}
-            value={email}
+            onChange={(ev) => setLatitud(ev.target.value)}
+            value={latitud}
           ></input>
         </div>
         <br></br>
-        <div
-          class="select"
-          required="true"
-          onChange={(ev) => setRol(ev.target.value)}
-        >
-          <select value={rol}>
-            <option>Seleccionar Rol</option>
-            <option>Director</option>
-            <option>Profesor</option>
-            <option>Conductor</option>
-          </select>
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            placeholder="Longitud"
+            id="longitud"
+            required="true"
+            onChange={(ev) => setLongitud(ev.target.value)}
+            value={longitud}
+          ></input>
+        </div>
+        <br></br>
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            placeholder="Horario"
+            id="horario"
+            required="true"
+            onChange={(ev) => setHorario(ev.target.value)}
+            value={horario}
+          ></input>
+        </div>
+        <br></br>
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            placeholder="Descripcion"
+            id="descripcion"
+            required="true"
+            onChange={(ev) => setDescripcion(ev.target.value)}
+            value={descripcion}
+          ></input>
+        </div>
+        <br></br>
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            placeholder="Municipio"
+            id="municipio"
+            required="true"
+            onChange={(ev) => setMunicipio(ev.target.value)}
+            value={municipio}
+          ></input>
         </div>
         <br></br>
         <br></br>
@@ -205,36 +245,36 @@ export default function Empleado() {
                 <button
                   class="button is-primary"
                   onClick={(e) => {
-                    guardarEmpleado(e);
+                    guardarTaller(e);
                   }}
                 >
-                  Guardar empleado
+                  Guardar Taller
                 </button>
               </div>
             </p>
             <hr></hr>
-              <h2>Seleccione el empleado que desea modificar</h2>
+              <h2>Seleccione el taller que desea modificar</h2>
               <br></br>
             <div class="table_wrapper is-centered">
               <table class="table is-bordered">
                 <thead>
                   <tr>
                     <th style= {{color:"white"}}>ID</th>
-                    <th style= {{color:"white"}}>Email</th>
-                    <th style= {{color:"white"}}>Rol</th>
+                    <th style= {{color:"white"}}>Nombre</th>
+                    <th style= {{color:"white"}}>Municipio</th>
                   </tr>
                 </thead>
                 <tbody>
                   {posts.blogs &&
                     posts.blogs.map((item) => (
                       <tr key={item.id}>
-                        <td>{item.cc}</td>
-                        <td>{item.email}</td>                    
-                        <td>{item.rol}</td>              
+                        <td>{item.id}</td>
+                        <td>{item.nombre}</td>                    
+                        <td>{item.municipio}</td>              
                         <td><button
                           class="button is-primary"
                           onClick={(e) => {
-                            buscarEmpleado(item.id,e);
+                            buscarTaller(item.id,e);
                           }}
                         >
                           Editar
@@ -242,7 +282,7 @@ export default function Empleado() {
                         <td><button
                           class="button is-primary"
                           onClick={(e) => {
-                            eliminarEmpleado(item.id,e);
+                            eliminarTaller(item.id,e);
                           }}
                         >
                           Borrar

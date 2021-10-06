@@ -2,21 +2,16 @@ import React,{Suspense} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Rutas from './Router/ruta';
-import { FirebaseAppProvider } from 'reactfire';
-import firebaseConfig from './firebase-config.js';
-import reportWebVitals from './reportWebVitals';
-import { initializeApp } from 'firebase/app';
-import { getFirestore} from 'firebase/firestore';
 
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+import reportWebVitals from './reportWebVitals';
+
 ReactDOM.render(
   <React.StrictMode>
-    <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+
     <Suspense>
     <Rutas />
     </Suspense>
-    </FirebaseAppProvider>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
